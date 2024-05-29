@@ -23,19 +23,9 @@ public class TutorialController {
 
 	@SuppressWarnings("null")
     @GetMapping("/tutorials")
-	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
+	public ResponseEntity<List<Tutorial>> getAllTutorials() {
 		try {
-			List<Tutorial> tutorials = new ArrayList<Tutorial>();
-
-			if (title == null)
-				tutorialRepository.findAll().forEach(tutorials::add);
-			else
-				tutorialRepository.findByTitleContaining(title).forEach(tutorials::add);
-
-			if (tutorials.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-
+			List<Tutorial> tutorials = tutorialRepository.findAll();
 			return new ResponseEntity<>(tutorials, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
