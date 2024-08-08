@@ -21,7 +21,7 @@ public class BookController {
 	BookRepository bookRepository;
 
 	@SuppressWarnings("null")
-    @GetMapping("/books")
+	@GetMapping("/books")
 	public ResponseEntity<List<Book>> getAllBooks() {
 		try {
 			List<Book> books = bookRepository.findAll();
@@ -32,7 +32,7 @@ public class BookController {
 		}
 	}
 
-    @GetMapping("/books/{id}")
+	@GetMapping("/books/{id}")
 	public ResponseEntity<Book> getBookById(@PathVariable("id") long id) {
 		Optional<Book> bookData = bookRepository.findById(id);
 
@@ -45,7 +45,7 @@ public class BookController {
 	}
 
 	@SuppressWarnings("null")
-    @PostMapping("/books")
+	@PostMapping("/books")
 	public ResponseEntity<Book> createBook(@RequestBody Book book) {
 		try {
 			Book _book = bookRepository
@@ -61,7 +61,7 @@ public class BookController {
 		}
 	}
 
-    @PutMapping("/books/{id}")
+	@PutMapping("/books/{id}")
 	public ResponseEntity<Book> updateBook(@PathVariable("id") long id, @RequestBody Book book) {
 		Optional<Book> bookData = bookRepository.findById(id);
 
