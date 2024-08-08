@@ -68,15 +68,16 @@ public class BookController {
 
 		if(bookData.isPresent()) {
 			Book bookToChange = bookData.get();
-        	if(book.getTitle() != null) {
-            	bookToChange.setTitle(book.getTitle());
-        	}
+
+			if(book.getTitle() != null) {
+				bookToChange.setTitle(book.getTitle());
+			}
 			if(book.getDescription() != null) {
-            	bookToChange.setDescription(book.getDescription());
-        	}
+				bookToChange.setDescription(book.getDescription());
+			}
 			if(book.getPublisher() != null) {
-            	bookToChange.setPublisher(book.getPublisher());
-        	}
+				bookToChange.setPublisher(book.getPublisher());
+			}
 			return new ResponseEntity<>(bookRepository.save(bookToChange), HttpStatus.OK);
 		}
 		else {
