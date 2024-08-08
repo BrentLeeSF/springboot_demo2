@@ -65,7 +65,7 @@ public class BookController {
 	public ResponseEntity<Book> updateBook(@PathVariable("id") long id, @RequestBody Book book) {
 		Optional<Book> bookData = bookRepository.findById(id);
 
-		if (bookData.isPresent()) {
+		if(bookData.isPresent()) {
 			Book bookToChange = bookData.get();
         	if(book.getTitle() != null) {
             	bookToChange.setTitle(book.getTitle());
