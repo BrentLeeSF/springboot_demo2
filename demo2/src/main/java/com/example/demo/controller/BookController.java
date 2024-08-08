@@ -28,6 +28,7 @@ public class BookController {
 			return new ResponseEntity<>(books, HttpStatus.OK);
 		}
 		catch(Exception e) {
+			// TODO - create better error response with exception
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

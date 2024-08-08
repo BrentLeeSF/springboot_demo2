@@ -1,12 +1,7 @@
 package com.example.demo.model;
 
-import jakarta.persistence.*; // for columns, generatedValue, table, entity
-/**
- * Jakarta Persistence defines a standard for management of persistence and object/relational mapping in Java(R) environments.
- * 
- * https://jakarta.ee/specifications/persistence/3.2/
- * 
- */
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -25,7 +20,6 @@ public class Book {
 	private String publisher;
 
 	public Book() {
-
 	}
 
 	public Book(String title, String description, String publisher) {
@@ -64,6 +58,6 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", desc=" + description + ", publisher=" + publisher + "]";
+		return "Book [id = " + id + ", title = " + title + ", description = " + description + ", publisher = " + publisher + "]";
 	}
 }
